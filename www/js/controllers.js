@@ -27,10 +27,24 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('MapCtrl', function($scope) {
+.controller('MapCtrl', function ($scope) {
   $scope.mapOptions = {
     center: new google.maps.LatLng(35.784, -78.670),
     zoom: 15,
     mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  $scope.aff = false;
+
+  $scope.centerOnMe = function() {
+
+    navigator.geolocation.getCurrentPosition(function(pos) {
+      $scope.mapOptions.center = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+      //google.maps.event.trigger(map,'resize');
+      $scope.aff = true;
+      $scope.$apply();
+    }, function(error) {
+      console.log('Unable to get location: ' + error.message);
+    });
   };
 });

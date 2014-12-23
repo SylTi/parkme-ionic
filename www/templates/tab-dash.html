@@ -24,8 +24,11 @@
         </div>
       </div>
     </div>
-    <section id="map" ng-controller="MapCtrl" >
-      <div ui-map="myMap" ui-options="mapOptions" class="map"></div>
-    </section>
+    <div ng-controller="MapCtrl">
+      <section id="map" ng-if="aff">
+        <div ui-map="myMap" ui-options="mapOptions" class="map"></div>
+      </section>
+      <button type="button" ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</button>
+    </div>
   </ion-content>
 </ion-view>
