@@ -7,26 +7,19 @@ navigation history that also transitions its views in and out.
 
 
   <!-- Dashboard Tab -->
-  <ion-tab title="Dashboard" icon-off="ion-ios7-pulse" icon-on="ion-ios7-pulse-strong" href="#/tab/dash">
+  <ion-tab title="Proche" icon-off="ion-android-locate" icon-on="ion-android-locate" href="#/tab/around">
+    <ion-nav-view name="tab-around"></ion-nav-view>
+  </ion-tab>
+
+   <!-- Dashboard Tab -->
+  <ion-tab title="Itineraire" icon-off="ion-map" icon-on="ion-map" href="#/tab/dash">
     <ion-nav-view name="tab-dash"></ion-nav-view>
   </ion-tab>
 
 
-  <!-- Chats Tab -->
-  <ion-tab title="Chats" icon-off="ion-ios7-chatboxes-outline" icon-on="ion-ios7-chatboxes" href="#/tab/chats">
-    <ion-nav-view name="tab-chats"></ion-nav-view>
-  </ion-tab>
-
   <!-- Friends Tab -->
-  <ion-tab title="Friends" icon-off="ion-ios7-heart-outline" icon-on="ion-ios7-heart" href="#/tab/friends">
+  <ion-tab title="Favoris" icon-off="ion-android-star" icon-on="ion-android-star" href="#/tab/friends">
     <ion-nav-view name="tab-friends"></ion-nav-view>
   </ion-tab>
-
-
-  <!-- Account Tab -->
-  <ion-tab title="Account" icon-off="ion-ios7-gear-outline" icon-on="ion-ios7-gear" href="#/tab/account">
-    <ion-nav-view name="tab-account"></ion-nav-view>
-  </ion-tab>
-
 
 </ion-tabs>

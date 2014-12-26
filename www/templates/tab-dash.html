@@ -1,34 +1,42 @@
 <ion-view view-title="Dashboard">
   <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
-        </div>
-      </div>
-    </div>
-    <div class="list card">
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
-        </div>
-      </div>
-    </div>
     <div ng-controller="MapCtrl">
-      <section id="map" ng-if="aff">
-        <div ui-map="myMap" ui-options="mapOptions" class="map"></div>
+      <section>
+        <div class="card">
+          <div class="list">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Distance départ
+              </div>
+              <select ng-model="selectAround">
+                <option value="1000">1km</option>
+                <option value="2000">2km</option>
+                <option value="5000">5km</option>
+                <option value="10000">10km</option>
+              </select>
+            </label>
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Distance arrivée
+              </div>
+              <select>
+                <option selected>1km</option>
+                <option>2km</option>
+                <option>5km</option>
+                <option>10km</option>
+              </select>
+            </label>
+          </div><br />
+          <div class="row">
+            <button type="button" ng-click="" class="button button-royal pull-right" style="width:100%;">Find !</button>
+          </div>
+          </div>
+        </div>
+        <section id="map" ng-if="aff">
+          <div ui-map="myMap" ui-options="mapOptions" class="map"></div>
+        </section>
+        <button type="button" ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Trouve moi !</button>
       </section>
-      <button type="button" ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</button>
     </div>
   </ion-content>
 </ion-view>
