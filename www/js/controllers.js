@@ -30,8 +30,12 @@ angular.module('starter.controllers', [])
 
   $scope.aff = false;
   $scope.selectAround = 1000;
+  $scope.autolibs = '';
+  $scope.parkings = '';
 
-  $scope.centerOnMe = function() {
+
+  $scope.centerOnMe = function() 
+  {
     console.log($scope.mapOptions);
     navigator.geolocation.getCurrentPosition(function(pos) {
       $scope.mapOptions.center = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -39,6 +43,7 @@ angular.module('starter.controllers', [])
       $scope.aff = true;
       getAroundAutolibs();
       getAroundParkings();
+
       $scope.$apply();
     }, function(error) {
       console.log('Unable to get location: ' + error.message);
@@ -52,6 +57,7 @@ angular.module('starter.controllers', [])
     {
       console.log('autolibs :');
       console.log(res);
+      $scope.autolibs = res;
     }).error(function (err)
     {
       console.log('err : ', err);
@@ -65,6 +71,8 @@ angular.module('starter.controllers', [])
     {
       console.log('parkings :');
       console.log(res);
+      $scope.parkings = res;
+      console.log('$scope: ', $scope.parkings);
     }).error(function (err)
     {
       console.log('err : ', err);

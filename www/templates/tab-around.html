@@ -1,0 +1,89 @@
+<ion-view view-title="Around">
+  <ion-content class="padding">
+    <div ng-controller="MapCtrl">
+      <section>
+        <div class="card">
+          <div class="list">
+            <label class="item item-input item-select">
+              <div class="input-label">
+                Rayon autour de vous
+              </div>
+              <select ng-model="selectAround">
+                <option value="1000">1km</option>
+                <option value="2000">2km</option>
+                <option value="5000">5km</option>
+                <option value="10000">10km</option>
+                <option value="25000">25km</option>
+                <option value="100000">100km</option>
+              </select>
+            </label>
+            <section id="map" ng-if="aff">
+              <div>
+                <h2>Parking autour de vous</h2>
+                <div class="row responsive-sm">
+                  <div class="row">
+                    <div class="col">
+                      <b>Name</b>
+                    </div>
+                    <div class="col">
+                      <b>Adresse</b>
+                    </div>
+                    <div class="col">
+                      <b>Distance</b>
+                    </div>
+                  </div>
+                  <div class="row" ng-repeat="parking in parkings">
+                    <div class="col">
+                      {{parking.fields.parkingName}}
+                    </div>
+                    <div class="col">
+                      {{parking.fields.address}}
+                    </div>
+                    <div class="col">
+                      {{parking.fields.parkingName}}
+                    </div>
+                  </div>
+                </div>
+                <h2>Autolibs autour de vous</h2><br />
+                <div class="row responsive-sm">
+                  <div class="row">
+                    <div class="col">
+                      <b>Name</b>
+                    </div>
+                    <div class="col">
+                      <b>City</b>
+                    </div>
+                    <div class="col">
+                      <b>Adresse</b>
+                    </div>
+                    <div class="col">
+                      <b>Distance</b>
+                    </div>
+                  </div>
+                  <div class="row" ng-repeat="autolib in autolibs">
+                    <div class="col">
+                      {{autolib.fields.stationName}}
+                    </div>
+                    <div class="col">
+                      {{autolib.fields.city}}
+                    </div>
+                    <div class="col">
+                      {{autolib.fields.emplacement}}
+                    </div>
+                    <div class="col">
+                      {{autolib.fields.parkingName}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ui-map="myMap" ui-options="mapOptions" class="map"></div>
+            </section>
+            <div class="row">
+              <button type="button" ng-click="centerOnMe()" class="button button-royal pull-right" style="width:100%;">Find !</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </ion-content>
+</ion-view>
